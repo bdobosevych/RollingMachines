@@ -1,0 +1,96 @@
+﻿<Window x:Class="RollingMachines.BasicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RollingMachines"
+        mc:Ignorable="d"
+        Title="BasicWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Cars">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid  x:Name="car" ItemsSource="{Binding Source=car}"  AutoGenerateColumns="True"  Height="264" VerticalAlignment="Top"  Grid.RowSpan="3" Grid.Row="1" MouseDoubleClick="car_MouseDoubleClick" SelectionChanged="car_SelectionChanged_1" >
+                        <DataGrid.Columns >
+                            
+                              
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="My Profil" >
+                <Grid Background="#FF212121">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="MyProfil" HorizontalAlignment="Center" VerticalAlignment="Center" Width="62" Grid.Column="0"  Grid.ColumnSpan="2" Foreground="White"/>
+
+                    <Label Content="NikName:" HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="1"  Foreground="White"/>
+                    <TextBox x:Name="nikName" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="133" Height="26" Grid.Column="1" Grid.Row="1"  Grid.ColumnSpan="3"  Foreground="White"  Background="#FF212121" />
+
+                    <Label  Content="First Name:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2"  Foreground="White"/>
+                    <TextBox x:Name="firstname" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="133" Height="26" Grid.Column="1" Grid.Row="2"  Grid.ColumnSpan="3"  Foreground="White"  Background="#FF212121"/>
+
+                    <Label Content="SurName:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"  Foreground="White"/>
+                    <TextBox x:Name="surname" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="133" Height="26" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3"  Foreground="White"  Background="#FF212121"/>
+
+                    <Label Content="Phone:" HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="4"  Foreground="White" />
+                    <TextBox x:Name="phone" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="133" Height="26" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3"  Foreground="White"  Background="#FF212121"/>
+
+                    <Button x:Name="save" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center" Click="save_Click" Height="33" Width="228" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="6"/>
+
+
+                    <Label Content="Previous Leases:" HorizontalAlignment="Center" VerticalAlignment="Center" Width="98"  Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3"  Foreground="White"  />
+
+                    <DataGrid  x:Name="myRent" ItemsSource="{Binding Source=myRent}"  AutoGenerateColumns="False"  Height="264" VerticalAlignment="Top" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="6" Grid.Row="1" >
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Header="Car Producer" Binding="{Binding CarProducer}"/>
+                            <DataGridTextColumn Header="Car Model" Binding="{Binding CarModel}"/>
+                            <DataGridTextColumn Header="StartDate" Binding="{Binding StartDate}"/>
+                            <DataGridTextColumn Header="EndDate" Binding="{Binding EndDate}"/>
+                            <DataGridTextColumn Header="PriceInRant" Binding="{Binding Price}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Image  x:Name = "logo" Source = "Imagen\logo.jpg" Height="102"  Grid.Row="6"  Grid.RowSpan="2" VerticalAlignment="Bottom" Grid.Column="4" Grid.ColumnSpan="3" />
+
+                </Grid>
+
+
+            </TabItem>
+
+
+        </TabControl>
+
+    </Grid>
+</Window>

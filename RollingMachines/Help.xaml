@@ -1,0 +1,22 @@
+﻿<Window x:Class="RollingMachines.Help"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RollingMachines"
+        mc:Ignorable="d"
+        Title="Help" Height="450" Width="800">
+    <Grid  Background="#FF212121">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="94*"></RowDefinition>
+            <RowDefinition Height="215*"></RowDefinition>
+            <RowDefinition Height="125*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label  Content="Help" HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="20" Grid.Row="0"  Foreground="White" />
+
+        <TextBlock  x:Name="info" HorizontalAlignment="Center"  Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"  Grid.Row="1"  Foreground="White" />
+
+        <Image  x:Name = "logo" Source = "Imagen\logo.jpg" Height="125"  Grid.Row="2" VerticalAlignment="Center"/>
+
+    </Grid>
+</Window>
