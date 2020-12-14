@@ -48,7 +48,7 @@
 
         <Button x:Name="registration" Content="Registration" Grid.Column="0"   Grid.Row="7" VerticalAlignment="Center" Grid.ColumnSpan="2" Click="registration_Click"   Foreground="White"  Background="#FF212121"/>
 
-        <Image  x:Name = "logo" Source = "Imagen\logo.jpg" Height="102"  Grid.Row="9"  Grid.RowSpan="3" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="2" />
+        <Image  x:Name = "logo" Source = "C:\Users\b_dobosevych\source\repos\RollingMachines\RollingMachines\Imagen\logo.jpg" Height="102"  Grid.Row="9"  Grid.RowSpan="3" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="2" />
         <TextBlock x:Name = "error" HorizontalAlignment="Center"  Grid.Row="8" Text=" " TextWrapping="Wrap" VerticalAlignment="Top"   Grid.ColumnSpan="2" Foreground="Red" />
 
 

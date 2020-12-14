@@ -9,22 +9,24 @@
     <Grid>
         <TabControl SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="Cars">
-                <Grid>
+                <Grid Background="#FF212121">
                     <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="79*"></RowDefinition>
+                        <RowDefinition Height="327*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition ></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <DataGrid  x:Name="car" ItemsSource="{Binding Source=car}"  AutoGenerateColumns="True"  Height="264" VerticalAlignment="Top"  Grid.RowSpan="3" Grid.Row="1" MouseDoubleClick="car_MouseDoubleClick" SelectionChanged="car_SelectionChanged_1" >
-                        <DataGrid.Columns >
-                            
+                    <Image  x:Name = "logo1" Source = "C:\Users\b_dobosevych\source\repos\RollingMachines\RollingMachines\Imagen\logo.jpg" Height="79" VerticalAlignment="Center"  />
+                    <DataGrid  x:Name="car" ItemsSource="{Binding Source=car}"  AutoGenerateColumns="False" MouseDoubleClick="car_MouseDoubleClick" SelectionChanged="car_SelectionChanged_1" 
                               
+                               RowBackground="#FF212121" AlternatingRowBackground="#FF212121"
+                               Background="#FF212121" Foreground="#FFD1B01E" Margin="0,10,0,0" Grid.Row="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"  />
+                            <DataGridTextColumn Header="Producer" Binding="{Binding Producer}"/>
+                            <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
+                            <DataGridTextColumn Header="Year" Binding="{Binding Year}"/>
+                            <DataGridTextColumn Header="PriceInDay" Binding="{Binding PriceInHout}"/>
+                            <DataGridTextColumn Header="Loose" Binding="{Binding Loose}"/>
+
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -67,12 +69,15 @@
                     <Label Content="Phone:" HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="4"  Foreground="White" />
                     <TextBox x:Name="phone" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="133" Height="26" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3"  Foreground="White"  Background="#FF212121"/>
 
-                    <Button x:Name="save" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center" Click="save_Click" Height="33" Width="228" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="6"/>
+                    <Button x:Name="save" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center" Click="save_Click" Height="33" Width="228" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="6" Foreground="White"  Background="#FF212121"/>
 
 
-                    <Label Content="Previous Leases:" HorizontalAlignment="Center" VerticalAlignment="Center" Width="98"  Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3"  Foreground="White"  />
+                    <Label Content="Previous Leases:" HorizontalAlignment="Center" VerticalAlignment="Center" Width="98"  Grid.Row="0" Grid.Column="3"   Foreground="White"  />
 
-                    <DataGrid  x:Name="myRent" ItemsSource="{Binding Source=myRent}"  AutoGenerateColumns="False"  Height="264" VerticalAlignment="Top" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="6" Grid.Row="1" >
+                    <DataGrid  x:Name="myRent" ItemsSource="{Binding Source=myRent}"  AutoGenerateColumns="False"  Height="254" VerticalAlignment="Top" Grid.Column="3" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="6"  
+                               
+                               RowBackground="#FF212121" AlternatingRowBackground="#FF212121"
+                               Background="#FF212121" Foreground="#FFD1B01E">
                         <DataGrid.Columns >
                             <DataGridTextColumn Header="Car Producer" Binding="{Binding CarProducer}"/>
                             <DataGridTextColumn Header="Car Model" Binding="{Binding CarModel}"/>
@@ -82,7 +87,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <Image  x:Name = "logo" Source = "Imagen\logo.jpg" Height="102"  Grid.Row="6"  Grid.RowSpan="2" VerticalAlignment="Bottom" Grid.Column="4" Grid.ColumnSpan="3" />
+                    <Image  x:Name = "logo" Source = "C:\Users\b_dobosevych\source\repos\RollingMachines\RollingMachines\Imagen\logo.jpg" Height="76"  Grid.Row="6"  Grid.RowSpan="2" VerticalAlignment="Bottom" Grid.Column="4" Grid.ColumnSpan="3" Margin="0,0,28,0" />
 
                 </Grid>
 

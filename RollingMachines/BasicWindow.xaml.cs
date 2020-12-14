@@ -36,22 +36,8 @@ namespace RollingMachines
             firstname.Text = user.FirstName;
             surname.Text = user.SurName;
             phone.Text = user.Phone;
-            car.ItemsSource = rollingMachinesContext.Set<Car>().ToList();
-            myRent.ItemsSource = rollingMachinesContext.Rents.Join
-                (rollingMachinesContext.Cars,
-                   carId1 => carId1.CarId,
-                   carId2 => carId2.Id,
-                   (carId1, carId2) => new
-                   {
-                       CarProducer = carId2.Producer,
-                       CarModel = carId2.Model,
-                       StartDate = carId1.StartDate,
-                       EndDate = carId1.EndDate,
-                       Price =carId1.PriceInPent
-                   }
-
-
-                ).ToList();
+            rollingMachinesContext.GetCars(car);
+            rollingMachinesContext.GetRentUser(myRent, user);
             
         }
 
@@ -98,7 +84,7 @@ namespace RollingMachines
                         
                         DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
                         Car car = (Car)dgr.Item;
-                        RentCar rentCar = new RentCar(user,car);
+                        RentCar rentCar = new RentCar(user,car,this);
                         rentCar.Show();
 
 

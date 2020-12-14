@@ -44,8 +44,8 @@ namespace RollingMachines
                     user.SurName = surname.Text;
                     user.Phone = phone.Text;
                     user.Password = password1.Text;
-                    rollingMachinesContext.Add<User>(user);
-                    rollingMachinesContext.SaveChanges();
+                    rollingMachinesContext.AddUser(user);
+                   
                     BasicWindow basicWindow = new BasicWindow(user);
                     basicWindow.Show();
                     this.Close();

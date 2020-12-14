@@ -29,7 +29,7 @@ namespace RollingMachines
 
         private void login_Click(object sender, RoutedEventArgs e)
         {
-            var res= rollingMachinesContext.Set<User>().Where(u => u.NikName ==nikName.Text && u.Password==password.Text).ToList();
+            var res= rollingMachinesContext.GetUser(nikName.Text,password.Text);
             if (res.Count == 1)
             {
                 BasicWindow basicWindow = new BasicWindow(res[0]);

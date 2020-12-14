@@ -42,11 +42,11 @@
         <DatePicker Name="endDate" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center"/>
 
         <Label Content="PromoCod:" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Foreground="White"/>
-        <TextBox x:Name="promoCod" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="3" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-        
-        <Button Content="RentCar" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="26" Width="83" Click="Button_Click"/>
+        <TextBox x:Name="promoCod" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="3" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Foreground="White"  Background="#FF212121"/>
 
-        <Image  x:Name = "logo" Source = "Imagen\logo.jpg" Height="102"  Grid.Row="6"  Grid.RowSpan="2" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2" />
+        <Button Content="RentCar" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="26" Width="83" Click="Button_Click" Foreground="White"  Background="#FF212121"/>
+
+        <Image  x:Name = "logo" Source = "C:\Users\b_dobosevych\source\repos\RollingMachines\RollingMachines\Imagen\logo.jpg" Height="102"  Grid.Row="6"  Grid.RowSpan="2" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2" />
         <TextBlock x:Name = "error" HorizontalAlignment="Center"  Grid.Row="5" Text=" " TextWrapping="Wrap" VerticalAlignment="Top"  Grid.Column="1"  Grid.ColumnSpan="2" Foreground="Red" />
 
     </Grid>

@@ -21,11 +21,13 @@ namespace RollingMachines
         private User user;
         private Car car;
         private RollingMachinesContext rollingMachinesContext;
+        private BasicWindow basicWindow;
+       
         public RentCar()
         {
             InitializeComponent();
         }
-        public RentCar(User user,Car car)
+        public RentCar(User user,Car car,BasicWindow basicWindow)
         {
             InitializeComponent();
             rollingMachinesContext = new RollingMachinesContext();
@@ -35,6 +37,7 @@ namespace RollingMachines
             price.Text = car.PriceInHout.ToString();
             this.car = car;
             this.user = user;
+            this.basicWindow = basicWindow;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,26 +49,44 @@ namespace RollingMachines
             rent.UserId = user.Id;
             rent.StartDate= Convert.ToDateTime( StartDate.SelectedDate);
             rent.EndDate = Convert.ToDateTime(endDate.SelectedDate);
-            var help = Convert.ToDateTime(endDate.SelectedDate) - Convert.ToDateTime(StartDate.SelectedDate);
-            try
+            var SdateTime= Convert.ToDateTime(StartDate.SelectedDate);
+            var EdateTime = Convert.ToDateTime(endDate.SelectedDate);
+            if (SdateTime != new DateTime() && EdateTime != new DateTime())
             {
-                float priceInPent = help.Days * car.PriceInHout * (100 - Convert.ToInt32(promoCod.Text)) / 100;
-                if (priceInPent >= 0)
+                if (EdateTime >= SdateTime)
                 {
+                    var help = EdateTime - SdateTime;
+                    float priceInPent = help.Days * car.PriceInHout;
+                    if (!String.IsNullOrEmpty(promoCod.Text))
+                    {
+                        if (Convert.ToInt32(promoCod.Text) > 0 && Convert.ToInt32(promoCod.Text) < 100)
+                        {
+                            priceInPent *= (100 - Convert.ToInt32(promoCod.Text)) / 100;
+
+                        }
+
+                    }
                     rent.PriceInPent = priceInPent;
-                    rollingMachinesContext.Add<Rent>(rent);
-                    rollingMachinesContext.SaveChanges();
+
+                    rollingMachinesContext.AddRent(rent, car);
+
+
+                    rollingMachinesContext.GetCars(basicWindow.car);
+                    rollingMachinesContext.GetRentUser(basicWindow.myRent, user);
+
                     this.Close();
+
                 }
                 else
                 {
                     error.Text = "Error data";
                 }
             }
-            catch
+            else
             {
-                error.Text = "Error dataTime";
+                error.Text = "Error data";
             }
+           
             
            
         }
