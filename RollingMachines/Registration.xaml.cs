@@ -38,17 +38,27 @@ namespace RollingMachines
                     error.Text = "Error in empty cells cannot be";
                 }
                 else {
-                    User user = new User();
-                    user.NikName = nikname.Text;
-                    user.FirstName = firstname.Text;
-                    user.SurName = surname.Text;
-                    user.Phone = phone.Text;
-                    user.Password = password1.Text;
-                    rollingMachinesContext.AddUser(user);
+                    var help = rollingMachinesContext.GetUsers(nikname.Text);
+                    if (help.Count == 0)
+                    {
+                        User user = new User();
+                        user.NikName = nikname.Text;
+                        user.FirstName = firstname.Text;
+                        user.SurName = surname.Text;
+                        user.Phone = phone.Text;
+                        user.Password = password1.Text;
+                        rollingMachinesContext.AddUser(user);
+
+                        BasicWindow basicWindow = new BasicWindow(user);
+                        basicWindow.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        error.Text = "THIS NIKNAME NOT GOOD";
+                    }
+
                    
-                    BasicWindow basicWindow = new BasicWindow(user);
-                    basicWindow.Show();
-                    this.Close();
 
                 }
             }

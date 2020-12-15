@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RollingMachines"
         mc:Ignorable="d"
-        Title="BasicWindow" Height="450" Width="800">
+        Title="BasicWindow" Height="450" Width="902">
     <Grid>
         <TabControl SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="Cars">
@@ -16,10 +16,11 @@
                     </Grid.RowDefinitions>
                     <Image  x:Name = "logo1" Source = "C:\Users\b_dobosevych\source\repos\RollingMachines\RollingMachines\Imagen\logo.jpg" Height="79" VerticalAlignment="Center"  />
                     <DataGrid  x:Name="car" ItemsSource="{Binding Source=car}"  AutoGenerateColumns="False" MouseDoubleClick="car_MouseDoubleClick" SelectionChanged="car_SelectionChanged_1" 
-                              
+                              IsReadOnly="True"
                                RowBackground="#FF212121" AlternatingRowBackground="#FF212121"
                                Background="#FF212121" Foreground="#FFD1B01E" Margin="0,10,0,0" Grid.Row="1">
                         <DataGrid.Columns>
+                            
                             <DataGridTextColumn Header="Id" Binding="{Binding Id}"  />
                             <DataGridTextColumn Header="Producer" Binding="{Binding Producer}"/>
                             <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
@@ -75,9 +76,10 @@
                     <Label Content="Previous Leases:" HorizontalAlignment="Center" VerticalAlignment="Center" Width="98"  Grid.Row="0" Grid.Column="3"   Foreground="White"  />
 
                     <DataGrid  x:Name="myRent" ItemsSource="{Binding Source=myRent}"  AutoGenerateColumns="False"  Height="254" VerticalAlignment="Top" Grid.Column="3" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="6"  
-                               
+                               IsReadOnly="True" 
+                               MouseDoubleClick="myRent_MouseDoubleClick"
                                RowBackground="#FF212121" AlternatingRowBackground="#FF212121"
-                               Background="#FF212121" Foreground="#FFD1B01E">
+                               Background="#FF212121" Foreground="#FFD1B01E" SelectionChanged="myRent_SelectionChanged">
                         <DataGrid.Columns >
                             <DataGridTextColumn Header="Car Producer" Binding="{Binding CarProducer}"/>
                             <DataGridTextColumn Header="Car Model" Binding="{Binding CarModel}"/>
@@ -88,6 +90,9 @@
                     </DataGrid>
 
                     <Image  x:Name = "logo" Source = "C:\Users\b_dobosevych\source\repos\RollingMachines\RollingMachines\Imagen\logo.jpg" Height="76"  Grid.Row="6"  Grid.RowSpan="2" VerticalAlignment="Bottom" Grid.Column="4" Grid.ColumnSpan="3" Margin="0,0,28,0" />
+
+                    <TextBlock x:Name = "error" HorizontalAlignment="Center"  Grid.Row="5" Text=" " TextWrapping="Wrap" VerticalAlignment="Top"   Grid.ColumnSpan="3" Foreground="Red" />
+
 
                 </Grid>
 

@@ -4,19 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 namespace RollingMachines
 {
-    public class RentUser
-    {
-        public string CarProducer { get; set; }
-        public string CarModel { get; set; }
-        public int UserId { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public float Price { get; set; }
-
-    }
+    
     public class RollingMachinesContext : DbContext
     {
         public DbSet<User> Users { get; set; }
@@ -26,18 +18,21 @@ namespace RollingMachines
         {
             dbContextOptionsBuilder.UseSqlServer(@"Server=BDOBOSEVYCH-PC;Database=RollingMachines;Trusted_Connection=True;");
         }
-        public void AddUser(User user)
+        public async Task AddUser(User user)
         {
             this.Add<User>(user);
-            this.SaveChanges();
+            await this.SaveChangesAsync();
         }
 
         public List<User> GetUser(string nikname, string password)
         {
             return this.Set<User>().Where(u => u.NikName == nikname && u.Password == password).ToList();
         }
-
-        public void AddRent(Rent rent, Car car)
+        public List<User> GetUsers(string nikname)
+        {
+            return this.Set<User>().Where(u => u.NikName == nikname).ToList();
+        }
+        public async Task AddRent(Rent rent, Car car)
         {
             this.Add<Rent>(rent);
             this.SaveChanges();

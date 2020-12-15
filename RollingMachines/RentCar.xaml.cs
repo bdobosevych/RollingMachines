@@ -61,7 +61,7 @@ namespace RollingMachines
                     {
                         if (Convert.ToInt32(promoCod.Text) > 0 && Convert.ToInt32(promoCod.Text) < 100)
                         {
-                            priceInPent *= (100 - Convert.ToInt32(promoCod.Text)) / 100;
+                            priceInPent *=(100 - float.Parse(promoCod.Text)) / 100;
 
                         }
 
